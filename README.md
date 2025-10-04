@@ -1,4 +1,5 @@
 🧠 Moderador de Hábitos
+
 O Moderador de Hábitos é uma aplicação Java simples e interativa que permite ao usuário registrar, acompanhar e gerenciar seus hábitos diários diretamente pelo terminal. Ideal para quem deseja iniciar uma rotina mais disciplinada e acompanhar seu progresso de forma prática.
 📋 Funcionalidades
 - Registro de usuário com nome, idade e data de nascimento
