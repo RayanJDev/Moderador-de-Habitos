@@ -112,7 +112,18 @@ public class ModeradorDeHabitos {
                     case 5:
                         rodando = false;
                         System.out.println("_____________________________");
-                        System.out.println("FINALIZANDO TAREFAS ...");
+                        System.out.print("FINALIZANDO TAREFAS ");
+                        try {
+                            for (int ponto = 0; ponto < 3; ponto++) {
+                                Thread.sleep(1000); //Temporiza o tempo em que o Terminal imprime o conteúdo
+                                System.out.print(".");
+                                Thread.sleep(500);//Dá um tempo de 0,5 segundos a mais para que o MENU demore para aparecer
+                            }
+                            System.out.println(" ");
+                            System.out.println("ATÉ A PROXIMA!!!");
+                        }catch (InterruptedException e){
+                            System.out.println("Exception");
+                        }
                         break;
 
                     default:
@@ -140,3 +151,4 @@ public class ModeradorDeHabitos {
         in.close();
     }
 }
+
