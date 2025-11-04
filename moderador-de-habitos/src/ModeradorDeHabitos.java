@@ -1,8 +1,6 @@
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.time.*;
+import java.util.*;
+import java.time.format.*;
 
 public class ModeradorDeHabitos {
 
@@ -27,8 +25,7 @@ public class ModeradorDeHabitos {
         System.out.print("INSIRA SUA IDADE: ");
         int idade = in.nextInt();
 
-        System.out.print("INSIRA SUA DATA DE NASCIMENTO: ");
-        String dNascimento = in.next();
+        LocalDate dataNascimento = solicitarDataNascimento(in);
 
         System.out.println("_____________________________");
         System.out.println("*** INICIANDO MODERADOR DE ROTINA ***");
@@ -40,7 +37,7 @@ public class ModeradorDeHabitos {
         String Sim = "Sim";
         String Nao = "Não";
 
-        if (resposta.equals(Sim)) {
+        if (resposta.equalsIgnoreCase(Sim)) {
             resposta = Sim;
             System.out.print("CARREGANDO MENU");
             try {
@@ -89,11 +86,11 @@ public class ModeradorDeHabitos {
                         }
                         break;
 
-                    case 3:
+                    case 3: // Aqui é mostrado quantas vezes a atividade foi executada
                         System.out.println("_____________________________");
                         System.out.println("*** Progresso dos Hábitos ...");
                         for (String h : habitos.keySet()) {
-                            System.out.println(h + ": " + habitos.get(h) + " vezes");
+                            System.out.println(h + ": " + habitos.get(h));
                         }
                         break;
 
@@ -121,7 +118,7 @@ public class ModeradorDeHabitos {
                             }
                             System.out.println(" ");
                             System.out.println("ATÉ A PROXIMA!!!");
-                        }catch (InterruptedException e){
+                        } catch (InterruptedException e) {
                             System.out.println("Exception");
                         }
                         break;
@@ -132,10 +129,11 @@ public class ModeradorDeHabitos {
                 }
             }
 
-        } else {
+        } else if (resposta.equalsIgnoreCase(Nao)){
             resposta = Nao;
             System.out.println("_____________________________");
             System.out.print("FINALIZANDO TAREFAS ");
+
             try {
                 for (int ponto = 0; ponto < 3; ponto++) {
                     Thread.sleep(1000); //Temporiza o tempo em que o console imprime o conteúdo
@@ -147,8 +145,40 @@ public class ModeradorDeHabitos {
             }catch (InterruptedException e){
                 System.out.println("ERRO NA FINALIZAÇÃO");
             }
+
+
         }
         in.close();
     }
+    public static LocalDate solicitarDataNascimento(Scanner scanner) {
+        // Define o formato esperado
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate data = null;
+        // CORREÇÃO 1: Inicializar a variável como false para que o loop comece
+        boolean inputValido = false;
+
+        // O loop continua ENQUANTO inputValido for FALSE (!inputValido)
+        while (!inputValido) {
+            String inputUsuario = scanner.nextLine();
+
+            // CORREÇÃO 2: Usar try-catch para validar a data real
+            try {
+                // Tenta converter a string para um objeto LocalDate usando o formato definido
+                data = LocalDate.parse(inputUsuario, formatter);
+                inputValido = true; // Se chegou aqui, o formato e a data são válidos (SUCESSO)
+
+            } catch (DateTimeParseException e) {
+                // Se a conversão falhou, a exceção DateTimeParseException é lançada.
+                // inputValido já é false (ERRO)
+                System.out.println("INSIRA SUA DATA DE NASCIMENTO: Use dd/mm/AAAA (ex: 25/12/1990)");
+                // O loop continua automaticamente
+            }
+
+            // Note que o bloco 'if(!inputValido)' e o 'else' que você tinha foram removidos,
+            // pois o try-catch faz esse trabalho de forma mais eficiente.
+        }
+        return data;
+    }
 }
+
 
