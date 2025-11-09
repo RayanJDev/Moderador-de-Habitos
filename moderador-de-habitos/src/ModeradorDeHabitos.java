@@ -32,6 +32,7 @@ public class ModeradorDeHabitos {
         System.out.println("Olá " + nome + ", seja bem vindo ao nosso aplicativo!");
         System.out.println("É um prazer te-ló conosco, estamos iniciando hoje em " + data.format(formatoData) + " às " + hora.format(formatoHora) + " do horario atual de Brasilia");
         System.out.println("Gostaria de iniciar as atividades?");
+
         String resposta = in.next();
 
         String Sim = "Sim";
@@ -49,7 +50,7 @@ public class ModeradorDeHabitos {
                 System.out.println(" ");
                 System.out.println("TUDO PRONTO, PARA COMEÇAR!");
             }catch (InterruptedException e){
-                System.out.println("ERRO NO CARREGAMENTO");
+                System.err.println("ERRO NO CARREGAMENTO");
             }
             boolean rodando = true;
             while (rodando) {
@@ -82,7 +83,7 @@ public class ModeradorDeHabitos {
                             habitos.put(habito, habitos.get(habito) + 1);
                             System.out.println("Registro atualizado!");
                         } else {
-                            System.out.println("Hábito não encontrado.");
+                            System.err.println("Hábito não encontrado.");
                         }
                         break;
 
@@ -102,7 +103,7 @@ public class ModeradorDeHabitos {
                             habitos.remove(habitoExcluir);
                             System.out.println("Hábito removido com sucesso.");
                         } else {
-                            System.out.println("Hábito não encontrado.");
+                            System.err.println("Hábito não encontrado.");
                         }
                         break;
 
@@ -125,7 +126,7 @@ public class ModeradorDeHabitos {
 
                     default:
                         System.out.println("_____________________________");
-                        System.out.println("OPÇÃO INVALIDA");
+                        System.err.println("OPÇÃO INVALIDA");
                 }
             }
 
@@ -143,10 +144,8 @@ public class ModeradorDeHabitos {
                 System.out.println(" ");
                 System.out.println("ATÉ A PROXIMA!!!");
             }catch (InterruptedException e){
-                System.out.println("ERRO NA FINALIZAÇÃO");
+                System.err.println("ERRO NA FINALIZAÇÃO");
             }
-
-
         }
         in.close();
     }
@@ -180,5 +179,3 @@ public class ModeradorDeHabitos {
         return data;
     }
 }
-
-
