@@ -32,12 +32,19 @@ java ModeradorDeHabitos
 - A interação é feita por meio de entradas numéricas e textuais simples.
 📷 Exemplo de uso
 INICIO DE LOGIN ***
+
 INSIRA SEU NOME PARA INICIO DE CADASTRO: João
+
 INSIRA SUA IDADE: 25
+
 INSIRA SUA DATA DE NASCIMENTO: 01/01/2000
+
 Olá João, seja bem vindo ao nosso aplicativo!
+
 Gostaria de iniciar as atividades? Sim
+
 CARREGANDO MENU...
+
 TUDO PRONTO, PARA COMEÇAR!
 *** HOME MENU ***
 1 - Registrar hábito
