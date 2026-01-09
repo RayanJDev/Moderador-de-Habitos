@@ -30,32 +30,6 @@ java ModeradorDeHabitos
 - O programa é executado via terminal e não possui interface gráfica.
 - Os dados não são persistidos após o encerramento da aplicação.
 - A interação é feita por meio de entradas numéricas e textuais simples.
-📷 Exemplo de uso
-INICIO DE LOGIN ***
-
-INSIRA SEU NOME PARA INICIO DE CADASTRO: João
-
-INSIRA SUA IDADE: 25
-
-INSIRA SUA DATA DE NASCIMENTO: 01/01/2000
-
-Olá João, seja bem vindo ao nosso aplicativo!
-
-Gostaria de iniciar as atividades? Sim
-
-CARREGANDO MENU...
-
-TUDO PRONTO, PARA COMEÇAR!
-*** HOME MENU ***
-1 - Registrar hábito
-2 - Insira o hábito executado
-3 - Exibir progresso
-4 - Excluir hábito
-5 - Sair
-Escolha uma opção: 1
-Digite o nome do hábito: Caminhar
-REGISTRO FEITO COM SUCESSO!
-
 
 📄 Licença
 Este projeto é de uso livre para fins educacionais e pessoais
